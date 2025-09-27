@@ -236,13 +236,35 @@
         margin-bottom: 8px;
     }
     
+    /* Estilos para el sistema automático */
+    .drive-instructions {
+        background: #e8f5e8;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 4px solid #4CAF50;
+    }
+    
+    .loading-gallery {
+        text-align: center;
+        padding: 40px;
+        font-size: 18px;
+        color: #666;
+    }
+    
+    .gallery-status {
+        text-align: center;
+        margin: 10px 0;
+        font-style: italic;
+        color: #777;
+    }
     
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo2MArco.png" alt="Logo" class="logo" />
+    <img src="archivos/logo2MArco.png" alt="Logo Estudio EMEGE" class="logo" />
     <nav>
       <ul>
         <li><a onclick="mostrarSeccion('nosotros')">MARCO ZAMORA</a></li>
@@ -287,7 +309,6 @@
       <li>Certificación en Diseño Bioclimático - Instituto de Arquitectura Verde</li>
       <li>Diplomado en Gestión de Proyectos Arquitectónicos</li>
       <li>postgrado en refrigeracion y empuje de vehiculo ecologico especializado en la conservacion de temperaturas optimas para mantener productos comestibles resguardados. (vendedor de bonice)</li>
-
     </ul>
 
     <div class="destacado">
@@ -392,37 +413,27 @@
         <li>Campeon inter-regional de "Manitas calientes"</li>
     </ul>
   </div>
-
-  <div id="multimedia" class="seccion contenido">
+<div id="multimedia" class="seccion contenido">
     <h2>Galería Multimedia</h2>
     <p>Explora mis proyectos a través de imágenes que capturan la esencia de cada diseño. Desde renders conceptuales hasta fotografías de obras terminadas, cada imagen cuenta la historia de una transformación arquitectónica.</p>
-    
-    <div class="destacado">
-        <p>Las imágenes mostradas incluyen renders fotorrealistas, fotografías de proceso constructivo, detalles arquitectónicos y espacios terminados. Cada proyecto es documentado profesionalmente para mostrar la calidad y atención al detalle que caracteriza nuestro trabajo.</p>
-    </div>
 
-    <div class="galeria">
-      <img src="marco/1.jpeg" alt="Imagen 1" />
-      <img src="marco/2.jpeg" alt="Interior sala de estar con doble altura" />
-      <img src="marco/3.jpeg" alt="Cocina integral con isla central" />
-      <img src="marco/4.jpeg" alt="Escalera flotante diseño minimalista" />
-      <img src="marco/5.jpeg" alt="Terraza exterior con pérgola" />
-      <img src="marco/6.jpeg" alt="Recámara principal con vestidor" />
-      <img src="marco/7.jpeg" alt="Baño principal mármol y cristal" />
-      <img src="marco/8.jpeg" alt="Estudio arquitectónico home office" />
-      <img src="marco/9.jpeg" alt="Jardín interior con fuente" />
-      <img src="marco/10.jpeg" alt="Fachada nocturna iluminación LED" />
-      <img src="marco/11.jpeg" alt="Detalle constructivo estructura" />
-      <img src="marco/12.jpeg" alt="Render 3D proyecto comercial" />
-      <img src="marco/13.jpeg" alt="Oficina corporativa open space" />
-      <img src="marco/14.jpeg" alt="Restaurante diseño interior" />
-      <img src="marco/15.jpeg" alt="Centro médico área recepción" />
-      <img src="marco/16.jpeg" alt="Casa colonial remodelada" />
-      <img src="marco/17.jpeg" alt="Conjunto residencial sustentable" />
-      <img src="marco/19.jpeg" alt="Planos técnicos arquitectónicos" />
-      <img src="marco/22.jpeg" alt="Maqueta proyecto residencial" />
-      <img src="marco/23.jpeg" alt="Proceso constructivo supervisión" />
-       <img src="https://lh3.googleusercontent.com/d/1jG3upohRDR3AZNaHu54NRQ6wpXZdUlX0=s600?authuser=0" alt="imagen prueba 1" />
+    <!-- SOLO ESTE MENSAJE DINÁMICO SE MANTIENE (cuando no hay imágenes) -->
+    <div class="gallery-status" id="gallery-status">Cargando imágenes...</div>
+
+    <div class="galeria" id="drive-gallery">
+        <div class="loading-gallery">🔄 Cargando galería...</div>
+    </div>
+</div>
+
+    <!-- Galería estática de respaldo (opcional) -->
+    <div style="display: none;" id="static-gallery">
+        <h3>Galería Estática</h3>
+        <div class="galeria">
+            <img src="marco/1.jpeg" alt="Imagen 1" />
+            <img src="marco/2.jpeg" alt="Interior sala de estar con doble altura" />
+            <img src="marco/3.jpeg" alt="Cocina integral con isla central" />
+            <!-- Mantén tus imágenes locales como respaldo -->
+        </div>
     </div>
   </div>
 
@@ -455,7 +466,7 @@
     <ul class="REDES">
         <li class="facebook"><a href="https://www.facebook.com/Estudio.emege" target="_blank"><img src="archivos/marco/facebook.png" alt="" style="height: 1em; vertical-align: middle; padding: 5px;">FACEBOOK - Galería de proyectos y noticias</a></li>
         <li class="instagram"><a href="https://www.instagram.com/estudio.emege/#" target="_blank"><img src="archivos/marco/instagram.png" alt="" style="height: 1em; vertical-align: middle; padding: 5px;">INSTAGRAM - Proceso creativo diario</a></li>
-        <li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=%2B528181397037&context=AffDi69bqO5hECXKSQCSU6XV18-JiiwDWz3i6KoJlbYMVPs-1AZKpOc3w2pcvw9rVRF_9ydMacMfQR-P09ks1xS5s6otcBj7LAthQLqDWz3CrhHDMIHJqN9dKOs3NI6gywN-rmOdsATC9tOzuMxEG5X6vQ&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawKMotlleHRuA2FlbQIxMABicmlkETFrQkN3ZVlNRGh6T2pxQzZxAR4Ia5Dx2plD1X9bjeVq8aE8rUbs2vJ3emPwyF835e7vo7NSUgK2XPbX3dDBzg_aem_k_JhXiruVEDPbK1FLhzmAQ" target="_blank" ><img src="archivos/marco/whatsapp.png" alt="" style="height: 1em; vertical-align: middle; padding: 5px;">WHATSAPP - Consultas inmediatas</a></li>
+        <li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=%2B528181397037&context=AffDi69bqO5hECXKSQCSU6XV18-JiiwDWz3i6KoJlbYMVPs-1AZKpOc3w2pcvw9rVRF_9ydMacMfQR-P09ks1xS5s6otcBj7LAthQLqDWz3CrhHDMIHJqN9dKOs3NI6gywN-rmOdsATC9tOzuMxEG5X6vQ&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawKMotlleHRuA2FlbQIxMABicmlidETFrQkN3ZVlNRGh6T2pxQzZxAR4Ia5Dx2plD1X9bjeVq8aE8rUbs2vJ3emPwyF835e7vo7NSUgK2XPbX3dDBzg_aem_k_JhXiruVEDPbK1FLhzmAQ" target="_blank" ><img src="archivos/marco/whatsapp.png" alt="" style="height: 1em; vertical-align: middle; padding: 5px;">WHATSAPP - Consultas inmediatas</a></li>
     </ul>
 
     <div class="destacado">
@@ -472,53 +483,178 @@
   <img id="lightbox-img" src="" alt="Imagen ampliada" style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 4px 32px #000;">
   <span id="lightbox-close" style="position:absolute;top:30px;right:50px;font-size:40px;color:#fff;cursor:pointer;font-weight:bold;">&times;</span>
 </div>
-<script>
-  // Lightbox funcionalidad
-  document.querySelectorAll('.galeria img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.onclick = function() {
-      document.getElementById('lightbox-img').src = this.src;
-      document.getElementById('lightbox').style.display = 'flex';
-    };
-  });
-  document.getElementById('lightbox-close').onclick = function() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.getElementById('lightbox-img').src = '';
-  };
-  // Cerrar lightbox al hacer click fuera de la imagen
-  document.getElementById('lightbox').onclick = function(e) {
-    if(e.target === this) {
-      this.style.display = 'none';
-      document.getElementById('lightbox-img').src = '';
-    }
-  };
-</script>
-<script>
-  
-  // Botón de regreso arriba
-  const btnArriba = document.getElementById('btnArriba');
-  window.onscroll = function() {
-    btnArriba.style.display = (window.scrollY > 200) ? 'block' : 'none';
-  };
-  btnArriba.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
-</script>
-  <script>
-    function mostrarSeccion(id) {
-      document.querySelectorAll('.seccion').forEach(sec => {
-        sec.classList.remove('activa');
-      });
-      document.getElementById(id).classList.add('activa');
-    }
 
-    // Mostrar "Nosotros" por defecto al cargar
-    mostrarSeccion('nosotros');
-  </script>
+<script>
+// =============================================
+// CONFIGURACIÓN AUTOMÁTICA DE GOOGLE DRIVE - VERSION FUNCIONAL
+// =============================================
+
+// USA TU URL REAL DEL SCRIPT
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxRwoOGEnOM4gdL48Lv5u_Vx9vo9_NX6TCRpu-OPmGhYPXPnf5JCIxPKTHr-i4tcUXT/exec';
+
+// Función principal PARA CARGAR IMÁGENES
+async function loadDriveGallery() {
+    const gallery = document.getElementById('drive-gallery');
+    const status = document.getElementById('gallery-status');
+    
+    try {
+        status.textContent = '🔄 Cargando imágenes desde Google Drive...';
+        gallery.innerHTML = '<div class="loading-gallery">⌛ Conectando con Google Drive...</div>';
+        
+        console.log('🔗 Conectando con:', SCRIPT_URL);
+        
+        // LLAMAR AL SCRIPT DE GOOGLE CON TIMEOUT
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+        
+        const response = await fetch(SCRIPT_URL, { 
+            signal: controller.signal 
+        });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        
+        const images = await response.json();
+        console.log('📸 Imágenes recibidas:', images);
+        
+        // Si hay error en la respuesta
+        if (images.error) {
+            throw new Error(images.error);
+        }
+        
+        if (!images || images.length === 0) {
+            status.textContent = '📁 No hay imágenes en la carpeta. Sube imágenes para verlas aquí.';
+            gallery.innerHTML = `
+                <div style="text-align:center;padding:40px;color:#666;">
+                    <p>🖼️ La carpeta está vacía</p>
+                    <p><small>Sube imágenes a la carpeta de Google Drive y recarga la página</small></p>
+                </div>
+            `;
+            return;
+        }
+        
+        // LIMPIAR Y MOSTRAR IMÁGENES
+        gallery.innerHTML = '';
+        images.forEach((image, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.url;
+            imgElement.alt = image.name || `Proyecto arquitectónico ${index + 1}`;
+            imgElement.loading = 'lazy';
+            imgElement.title = image.name || 'Proyecto Estudio EMEGE';
+            
+            // AGREGAR LIGHTBOX
+            imgElement.style.cursor = 'zoom-in';
+            imgElement.onclick = function() {
+                showLightbox(this.src);
+            };
+            
+            gallery.appendChild(imgElement);
+        });
+        
+        status.textContent = `✅ ${images.length} imágenes cargadas automáticamente desde Google Drive`;
+        console.log('✅ Galería cargada correctamente');
+        
+    } catch (error) {
+        console.error('❌ Error cargando galería:', error);
+        status.textContent = '⚠️ Error temporal. Recarga la página.';
+        showStaticGallery();
+    }
+}
+
+// GALERÍA ESTÁTICA DE RESpaldo
+function showStaticGallery() {
+    const gallery = document.getElementById('drive-gallery');
+    gallery.innerHTML = `
+        <div style="text-align:center;padding:40px;color:#d32f2f;">
+            <p>⚠️ Error de conexión temporal</p>
+            <p><small>Intenta recargar la página o verifica tu conexión</small></p>
+            <button onclick="loadDriveGallery()" style="padding:10px 20px;margin:10px;background:#472b2b;color:white;border:none;border-radius:5px;cursor:pointer;">
+                🔄 Reintentar
+            </button>
+        </div>
+    `;
+}
+
+// =============================================
+// FUNCIONALIDADES EXISTENTES (MANTENER)
+// =============================================
+
+function showLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+}
+
+document.getElementById('lightbox-close').onclick = function() {
+    document.getElementById('lightbox').style.display = 'none';
+};
+
+document.getElementById('lightbox').onclick = function(e) {
+    if(e.target === this) this.style.display = 'none';
+};
+
+const btnArriba = document.getElementById('btnArriba');
+window.onscroll = function() {
+    btnArriba.style.display = (window.scrollY > 200) ? 'block' : 'none';
+};
+btnArriba.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+function mostrarSeccion(id) {
+    document.querySelectorAll('.seccion').forEach(sec => {
+        sec.classList.remove('activa');
+    });
+    document.getElementById(id).classList.add('activa');
+    
+    // Cargar galería automáticamente al entrar a Multimedia
+    if (id === 'multimedia') {
+        setTimeout(loadDriveGallery, 300);
+    }
+}
+
+// Cargar galería al iniciar si estamos en Multimedia
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('multimedia').classList.contains('activa')) {
+        setTimeout(loadDriveGallery, 1000);
+    }
+});
+
+// =============================================
+// TEST MANUAL - PARA VERIFICAR QUE FUNCIONE
+// =============================================
+
+// Función para probar con una imagen manualmente
+function testConImagenManual() {
+    const gallery = document.getElementById('drive-gallery');
+    const status = document.getElementById('gallery-status');
+    
+    status.textContent = '🧪 Modo prueba: Imagen manual';
+    
+    // Usa la imagen que ya probamos que funciona
+    const imgElement = document.createElement('img');
+    imgElement.src = 'https://lh3.googleusercontent.com/d/1jG3upohRDR3AZNaHu54NRQ6wpXZdUlX0=s600';
+    imgElement.alt = 'Imagen de prueba desde Drive';
+    imgElement.style.cursor = 'zoom-in';
+    imgElement.onclick = function() {
+        showLightbox(this.src);
+    };
+    
+    gallery.innerHTML = '';
+    gallery.appendChild(imgElement);
+    
+    // Agregar botón para volver al modo automático
+    const botonVolver = document.createElement('button');
+    botonVolver.textContent = '🔄 Volver al modo automático';
+    botonVolver.style.cssText = 'padding:10px;margin:10px auto;display:block;background:#472b2b;color:white;border:none;border-radius:5px;cursor:pointer;';
+    botonVolver.onclick = loadDriveGallery;
+    
+    gallery.appendChild(botonVolver);
+}
+
+// Para probar inmediatamente, descomenta la línea siguiente:
+// testConImagenManual();
+
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
